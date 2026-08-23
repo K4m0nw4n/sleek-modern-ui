@@ -53,10 +53,18 @@ body {
     overflow: hidden !important;
 }
 /* =========================================================
-   3. CHAT AREA & BUBBLES (ไฮไลต์เปลี่ยนตามธีมแบบ Dynamic)
+   3. CHAT AREA & BUBBLES (แก้ไขปัญหาหน้าจอมือถือถูกบีบ)
    ========================================================= */
 #chat {
-    padding: 20px 12% !important;
+    padding: 15px 10px !important; /* ค่าเริ่มต้นสำหรับหน้าจอทั่วไปและมือถือ */
+    box-sizing: border-box !important;
+}
+
+/* เพิ่ม Padding เฉพาะบนจอคอมพิวเตอร์ (ขนาดจอมากกว่า 768px ขึ้นไป) */
+@media (min-width: 768px) {
+    #chat {
+        padding: 20px 10% !important;
+    }
 }
 
 /* บล็อกข้อความทั่วไป */
