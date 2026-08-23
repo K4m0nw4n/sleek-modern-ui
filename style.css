@@ -269,10 +269,10 @@ select:focus,
 }
 
 /* =========================================================
-   USER MESSAGE: ALIGN AVATAR & NAME TO THE RIGHT
+   USER MESSAGE: ALIGN AVATAR & NAME TO THE RIGHT (FIXED)
    ========================================================= */
 
-/* 1. จัดโครงสร้างแชทฝั่ง User ให้ชิดขวา */
+/* 1. จัดโครงสร้างหลักฝั่ง User ให้ชิดขวา */
 .mes[is_user="true"] {
     display: flex !important;
     flex-direction: column !important;
@@ -280,25 +280,29 @@ select:focus,
     text-align: right !important;
 }
 
-/* 2. สลับรูปภาพและชื่อให้ไปอยู่ฝั่งขวา */
+/* 2. จัดระเบียบบล็อกชื่อ เวลา และรูปโปรไฟล์ให้อยู่ในแถวเดียวกันอย่างสมดุล */
 .mes[is_user="true"] .mes_block {
     display: flex !important;
-    flex-direction: row-reverse !important; /* สลับตำแหน่งรูปไว้ขวาสุด */
-    align-items: center !important;
+    flex-direction: row-reverse !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
     gap: 12px !important;
+    width: 100% !important;
 }
 
-/* 3. ปรับตำแหน่งชื่อและเวลาให้ชิดขวา */
+/* 3. จัดกลุ่มชื่อและเวลาให้ชิดขวาเรียงลงมา */
 .mes[is_user="true"] .ch_name {
     display: flex !important;
-    flex-direction: row-reverse !important;
-    gap: 8px !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 2px !important;
 }
 
-/* 4. จัดข้อความแชทให้อยู่ฝั่งขวาพอดี */
+/* 4. จัดข้อความแชตฝั่ง User ให้ชิดขวาเข้าที่ */
 .mes[is_user="true"] .mes_text {
     text-align: right !important;
     width: 100% !important;
+    margin-top: 4px !important;
 }
 /* =========================================================
    ONLINE STATUS DOT FOR AVATAR
