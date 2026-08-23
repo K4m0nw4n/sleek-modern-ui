@@ -269,38 +269,40 @@ select:focus,
 }
 
 /* =========================================================
-   8. USER MESSAGE: STACKED HEADER SIDE-BY-SIDE WITH AVATAR
+   8. USER MESSAGE: INLINE HEADER (DYNAMIC THEME COLOR)
    ========================================================= */
 .mes[is_user="true"] .mes_block {
     display: flex !important;
     flex-direction: row-reverse !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     justify-content: flex-start !important;
     gap: 12px !important;
     width: 100% !important;
     margin-bottom: 8px !important;
 }
 
-/* ซ้อนชื่อไว้บรรทัดบน และเวลาไว้บรรทัดล่าง ชิดขวาแนบข้างรูปโปรไฟล์ */
+/* จัดชื่อและเวลาเรียงต่อกันแนวแนวนอน */
 .mes[is_user="true"] .ch_name {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 8px !important;
     text-align: right !important;
-    margin-right: 4px !important;
 }
 
+/* ดึงสีชื่อตามธีมที่ตั้งค่าไว้ใน SillyTavern พร้อมแสง Glow ตามโทนธีม */
 .mes[is_user="true"] .name_text {
     font-weight: 700 !important;
-    font-size: 1.1rem !important;
-    color: #e2d9f3 !important;
-    text-shadow: 0 0 8px rgba(226, 217, 243, 0.6) !important;
+    font-size: 1.2rem !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    text-shadow: 0 0 10px var(--SmartThemeQuoteColor, rgba(226, 217, 243, 0.5)) !important;
 }
 
+/* วันที่และเวลา */
 .mes[is_user="true"] .timestamp {
-    font-size: 0.8rem !important;
-    color: #9a94b8 !important;
-    margin-top: 2px !important;
+    font-size: 0.78rem !important;
+    color: var(--SmartThemeBodyTextColor, #a09cb0) !important;
+    opacity: 0.65 !important;
     font-weight: normal !important;
     white-space: nowrap !important;
 }
