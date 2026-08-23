@@ -244,3 +244,40 @@ select, .setting_select, #chat_style {
     border: 2px solid #0d1117;
     border-radius: 50%;
 }
+/* =========================================================
+   FIX: ปลดล็อกความกว้างพื้นที่แชท + ขยายตัวหนังสือเต็มจอ
+   ========================================================= */
+
+/* 1. ขยายพื้นที่กล่องข้อความหลักให้เต็มหน้าจอ */
+#chat {
+    padding: 10px 0 !important; /* ยกเลิกการบีบขอบซ้ายขวา */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. ปรับตัวการ์ดข้อความ (.mes) ทั้งฝั่ง AI และ User */
+.mes {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 12px 14px !important;
+}
+
+/* 3. บังคับเนื้อหาข้อความ (.mes_text) ให้ขยายเต็มพื้นที่และจัดชิดซ้าย */
+.mes_text {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important; /* จัดข้อความชิดซ้าย ไม่บีบตรงกลาง */
+    box-sizing: border-box !important;
+    word-break: break-word !important; /* ป้องกันข้อความยาวทะลุจอ */
+}
+
+/* 4. เคลียร์ค่าฝั่ง User ให้ยืดเต็มขอบเช่นกัน */
+.mes[is_user="true"] .mes_text {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+}
