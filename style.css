@@ -267,41 +267,42 @@ select:focus,
 .quick_insert_btn:active {
     transform: translateY(0) !important;
 }
+
 /* =========================================================
-   8. USER MESSAGE: ALIGN AVATAR SIDE-BY-SIDE WITH TEXT
+   8. USER MESSAGE: STACKED HEADER SIDE-BY-SIDE WITH AVATAR
    ========================================================= */
-.mes[is_user="true"] {
-    display: block !important;
-}
-
-/* ล็อกรูปโปรไฟล์ไว้ฝั่งขวา ให้ข้อความและชื่อไหลขนานข้างๆ */
-.mes[is_user="true"] .avatar {
-    float: right !important;
-    margin-left: 12px !important;
-    margin-bottom: 6px !important;
-    margin-top: 2px !important;
-}
-
-/* ปรับชื่อและเวลาให้อยู่ฝั่งขวาเสมอระดับรูป */
-.mes[is_user="true"] .ch_name {
+.mes[is_user="true"] .mes_block {
     display: flex !important;
     flex-direction: row-reverse !important;
-    align-items: center !important;
-    gap: 8px !important;
-    text-align: right !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
 }
 
-/* จัดข้อความให้อยู่ฝั่งขวา */
-.mes[is_user="true"] .mes_text {
+/* ซ้อนชื่อไว้บรรทัดบน และเวลาไว้บรรทัดล่าง ชิดขวาแนบข้างรูปโปรไฟล์ */
+.mes[is_user="true"] .ch_name {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
     text-align: right !important;
-    clear: none !important;
+    margin-right: 4px !important;
 }
 
-/* ล้าง float เมื่อจบกล่องแชตเพื่อไม่ให้กระทบกล่องถัดไป */
-.mes[is_user="true"]::after {
-    content: "";
-    display: table;
-    clear: both;
+.mes[is_user="true"] .name_text {
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    color: #e2d9f3 !important;
+    text-shadow: 0 0 8px rgba(226, 217, 243, 0.6) !important;
+}
+
+.mes[is_user="true"] .timestamp {
+    font-size: 0.8rem !important;
+    color: #9a94b8 !important;
+    margin-top: 2px !important;
+    font-weight: normal !important;
+    white-space: nowrap !important;
 }
 /* =========================================================
    ONLINE STATUS DOT FOR AVATAR
