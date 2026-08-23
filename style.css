@@ -1,0 +1,199 @@
+/* =========================================================
+   1. GLOBAL STYLES & BACKGROUND
+   ========================================================= */
+body {
+    background: #0d1117 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    color: #e6edf3 !important;
+}
+
+/* เพิ่มความเงา/เบลอให้ภาพพื้นหลัง */
+#bg1 {
+    filter: blur(12px) brightness(0.35) !important;
+    transform: scale(1.05); /* ป้องกันขอบขาวจากการทำ blur */
+}
+
+/* =========================================================
+   2. TOP BAR & NAVIGATION (ย่อขนาดความสูงและความกว้าง)
+   ========================================================= */
+#top-bar {
+    background: var(--SmartThemeBlurTintColor, rgba(15, 20, 29, 0.9)) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: none !important;
+    height: 40px !important; /* ลดความสูงลงจาก 52px */
+    line-height: 40px !important;
+    border-radius: 0 0 12px 12px !important; /* ปรับมุมโค้งมนให้พอดีกับขนาดที่เล็กลง */
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+    padding: 0 10px !important; /* เพิ่มระยะเว้นขอบซ้าย-ขวา */
+}
+
+/* ปรับขนาดไอคอนภายใน Top Bar ให้กะทัดรัดลง */
+#top-bar .drawer-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease;
+}
+
+#top-bar .drawer-icon:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    transform: translateY(-1px);
+}
+
+/* ปรับระยะห่างของแผงพาเนลที่เปิดดรอปดาวน์ลงมา */
+.drawer-content,
+#right-nav-panel,
+#left-nav-panel {
+    border: none !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+/* =========================================================
+   3. CHAT AREA & BUBBLES (ไฮไลต์เปลี่ยนตามธีมแบบ Dynamic)
+   ========================================================= */
+#chat {
+    padding: 20px 12% !important;
+}
+
+/* บล็อกข้อความทั่วไป */
+.mes {
+    background: var(--SmartThemeBotMesBGColor, rgba(15, 23, 42, 0.8)) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 20px !important;
+    padding: 18px 22px !important;
+    transition: border-color 0.2s ease;
+}
+
+.mes:hover {
+    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.25)) !important;
+}
+
+/* ฝั่ง AI (Character) - เส้นไฮไลต์ซ้ายดึงสีจากธีมหลัก */
+.mes[is_user="false"] {
+    border-left: 4px solid var(--SmartThemeQuoteColor, var(--SmartThemeBodyTextColor, #38bdf8)) !important;
+}
+
+.mes[is_user="false"] .mes_text {
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+}
+
+/* ฝั่ง User - เส้นไฮไลต์ขวาดึงสีจากธีมรอง */
+.mes[is_user="true"] {
+    background: var(--SmartThemeUserMesBGColor, rgba(30, 27, 75, 0.5)) !important;
+    border: 1px solid var(--SmartThemeEmColor, rgba(255, 255, 255, 0.1)) !important;
+    border-right: 4px solid var(--SmartThemeEmColor, var(--SmartThemeQuoteColor, #a855f7)) !important;
+    border-left: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+}
+
+.mes[is_user="true"] .mes_block {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.mes[is_user="true"] .ch_name {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    gap: 8px !important;
+}
+
+.mes[is_user="true"] .mes_text {
+    text-align: right !important;
+    width: 100% !important;
+}
+
+/* ปรับแต่ง Avatar รูปโปรไฟล์ */
+.avatar img {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
+}
+/* =========================================================
+   4. INPUT & SEND AREA (ปรับกล่องพิมพ์ด้านล่าง)
+   ========================================================= */
+#send_form {
+    background: rgba(13, 17, 23, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 14px 20px !important;
+}
+
+#send_textarea {
+    background: rgba(22, 27, 34, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #f0f6fc !important;
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
+}
+
+#send_textarea:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+}
+
+#send_but {
+    background: linear-gradient(135deg, #38bdf8, #6366f1) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+#send_but:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   5. DRAWER PANELS (แถบเมนูด้านซ้าย-ขวา เวลาเปิดออก)
+   ========================================================= */
+.drawer-content {
+    background: rgba(13, 17, 23, 0.95) !important;
+    backdrop-filter: blur(24px) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+/* =========================================================
+   USER MESSAGE: ALIGN AVATAR & NAME TO THE RIGHT
+   ========================================================= */
+
+/* 1. จัดโครงสร้างแชทฝั่ง User ให้ชิดขวา */
+.mes[is_user="true"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+}
+
+/* 2. สลับรูปภาพและชื่อให้ไปอยู่ฝั่งขวา */
+.mes[is_user="true"] .mes_block {
+    display: flex !important;
+    flex-direction: row-reverse !important; /* สลับตำแหน่งรูปไว้ขวาสุด */
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+/* 3. ปรับตำแหน่งชื่อและเวลาให้ชิดขวา */
+.mes[is_user="true"] .ch_name {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    gap: 8px !important;
+}
+
+/* 4. จัดข้อความแชทให้อยู่ฝั่งขวาพอดี */
+.mes[is_user="true"] .mes_text {
+    text-align: right !important;
+    width: 100% !important;
+}
