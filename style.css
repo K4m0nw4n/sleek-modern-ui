@@ -267,44 +267,54 @@ select:focus,
 .quick_insert_btn:active {
     transform: translateY(0) !important;
 }
-
 /* =========================================================
-   8. USER MESSAGE: INLINE HEADER (DYNAMIC THEME COLOR)
+   8. USER MESSAGE: FIXED INLINE HEADER (MOBILE & DESKTOP)
    ========================================================= */
+/* จัดโครงสร้างส่วนบนให้รูป Avatar และข้อความอยู่คนละฝั่งอย่างชัดเจน */
 .mes[is_user="true"] .mes_block {
     display: flex !important;
     flex-direction: row-reverse !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     justify-content: flex-start !important;
     gap: 12px !important;
     width: 100% !important;
     margin-bottom: 8px !important;
 }
 
-/* จัดชื่อและเวลาเรียงต่อกันแนวแนวนอน */
+/* คุมข้อความชื่อและเวลาให้อยู่บรรทัดเดียวกันแบบแนวนอน */
 .mes[is_user="true"] .ch_name {
     display: flex !important;
     flex-direction: row !important;
     align-items: baseline !important;
+    justify-content: flex-end !important;
     gap: 8px !important;
+    width: auto !important;
     text-align: right !important;
+    flex-wrap: nowrap !important; /* ป้องกันการตกบรรทัด */
 }
 
-/* ดึงสีชื่อตามธีมที่ตั้งค่าไว้ใน SillyTavern พร้อมแสง Glow ตามโทนธีม */
+/* ชื่อตัวละคร/ผู้ใช้ ดึงสีตามธีม */
 .mes[is_user="true"] .name_text {
     font-weight: 700 !important;
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
     text-shadow: 0 0 10px var(--SmartThemeQuoteColor, rgba(226, 217, 243, 0.5)) !important;
+    white-space: nowrap !important;
 }
 
 /* วันที่และเวลา */
 .mes[is_user="true"] .timestamp {
-    font-size: 0.78rem !important;
+    font-size: 0.75rem !important;
     color: var(--SmartThemeBodyTextColor, #a09cb0) !important;
     opacity: 0.65 !important;
     font-weight: normal !important;
     white-space: nowrap !important;
+}
+
+/* บังคับเนื้อหาข้อความแชตชิดขวาตามการ์ด */
+.mes[is_user="true"] .mes_text {
+    text-align: right !important;
+    width: 100% !important;
 }
 /* =========================================================
    ONLINE STATUS DOT FOR AVATAR
