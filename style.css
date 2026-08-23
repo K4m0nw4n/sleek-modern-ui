@@ -268,57 +268,65 @@ select:focus,
     transform: translateY(0) !important;
 }
 /* =========================================================
-   8. USER MESSAGE: FORCE INLINE HEADER (FIX MOBILE OVERLAP)
+   8. USER MESSAGE: COMPLETE LAYOUT (HEADER RIGHT + TEXT FULL)
    ========================================================= */
-/* จัดระเบียบบล็อกส่วนบนให้รูปอยู่ขวาสุด */
-.mes[is_user="true"] .mes_block {
+/* จัดการโครงสร้างการ์ดข้อความฝั่ง User ทั้งหมด */
+.mes[is_user="true"] {
     display: flex !important;
-    flex-direction: row-reverse !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 10px !important;
-    width: 100% !important;
-    margin-bottom: 8px !important;
+    flex-direction: column !important; /* เรียงส่วนบนและส่วนล่างลงมาตามลำดับ */
+    align-items: flex-end !important; /* จัดทุกอย่างชิดขวา */
 }
 
-/* บังคับกรอบชื่อและเวลาให้เป็นแถวเดียว แนวนอน ชิดขวา */
+/* ส่วนที่ 1: บล็อก Header ด้านบน (ชื่อ + เวลา + Avatar) */
+.mes[is_user="true"] .mes_block {
+    display: flex !important;
+    flex-direction: row-reverse !important; /* รูปอยู่นอกสุดขวา ข้อความอยู่ทางซ้ายของรูป */
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+}
+
+/* กรอบชื่อและวันที่เวลา (อยู่บรรทัดเดียวกันแนวนอน) */
 .mes[is_user="true"] .ch_name {
     display: inline-flex !important;
     flex-direction: row !important;
     align-items: baseline !important;
-    justify-content: flex-end !important;
-    gap: 6px !important;
-    width: auto !important;
-    text-align: right !important;
+    gap: 8px !important;
     white-space: nowrap !important;
+    margin: 0 !important;
 }
 
-/* ชื่อดึงสีตามธีม */
+/* ข้อความชื่อดึงสีตามธีม */
 .mes[is_user="true"] .name_text {
-    display: inline-block !important;
     font-weight: 700 !important;
-    font-size: 1.05rem !important;
+    font-size: 1.15rem !important;
     color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
-    text-shadow: 0 0 8px var(--SmartThemeQuoteColor, rgba(226, 217, 243, 0.5)) !important;
+    text-shadow: 0 0 10px var(--SmartThemeQuoteColor, rgba(226, 217, 243, 0.5)) !important;
 }
 
 /* วันที่และเวลา */
 .mes[is_user="true"] .timestamp {
-    display: inline-block !important;
-    font-size: 0.72rem !important;
+    font-size: 0.78rem !important;
     color: var(--SmartThemeBodyTextColor, #a09cb0) !important;
     opacity: 0.65 !important;
     font-weight: normal !important;
 }
 
-/* ย้ายหรือซ่อนกลุ่มปุ่มแก้ไขเพื่อไม่ให้ดันชื่อตกบรรทัด */
+/* ซ่อนปุ่มแก้ไขขยะไม่ให้ขวางบรรทัด */
 .mes[is_user="true"] .mes_buttons {
-    display: none !important; /* ซ่อนปุ่มแก้ไขขยะที่ดันชื่อลง */
+    display: none !important;
 }
 
-/* แสดงปุ่มแก้ไขเมื่อเอาเมาส์ชี้หรือแตะ */
-.mes[is_user="true"]:hover .mes_buttons {
-    display: flex !important;
+/* ส่วนที่ 2: ช่องข้อความด้านล่าง (เต็มพื้นที่ ชิดขวา) */
+.mes[is_user="true"] .mes_text {
+    width: 100% !important;
+    text-align: right !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    box-sizing: border-box !important;
 }
 /* =========================================================
    ONLINE STATUS DOT FOR AVATAR
