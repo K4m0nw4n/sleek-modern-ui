@@ -7,14 +7,13 @@ body {
     color: #e6edf3 !important;
 }
 
-/* เพิ่มความเงา/เบลอให้ภาพพื้นหลัง */
 #bg1 {
     filter: blur(12px) brightness(0.35) !important;
-    transform: scale(1.05); /* ป้องกันขอบขาวจากการทำ blur */
+    transform: scale(1.05);
 }
 
 /* =========================================================
-   2. TOP BAR & NAVIGATION (ย่อขนาดความสูงและความกว้าง)
+   2. TOP BAR & NAVIGATION
    ========================================================= */
 #top-bar {
     background: var(--SmartThemeBlurTintColor, rgba(15, 20, 29, 0.9)) !important;
@@ -52,10 +51,12 @@ body {
 }
 
 /* =========================================================
-   3. CHAT AREA & BUBBLES
+   3. CHAT AREA & BUBBLES (แก้ปัญหามือถือโดนบีบแคบ)
    ========================================================= */
 #chat {
-    padding: 20px 12% !important;
+    padding: 10px 5px !important; /* ลด Margin ข้างจอลง ให้เต็มจอมือถือ */
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .mes {
@@ -64,9 +65,11 @@ body {
     border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
     border-radius: 16px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-    margin-bottom: 20px !important;
-    padding: 18px 22px !important;
+    margin-bottom: 15px !important;
+    padding: 14px 16px !important;
     transition: border-color 0.2s ease;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .mes:hover {
@@ -113,7 +116,7 @@ body {
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
 }
 
-#send_but {
+#send_but, #stop_generating {
     background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
     border: none !important;
     border-radius: 12px !important;
@@ -123,35 +126,9 @@ body {
     transition: all 0.2s ease !important;
 }
 
-#send_but:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
-}
-
-#stop_generating {
-    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
-    border: none !important;
-    border-radius: 12px !important;
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
-    color: #ffffff !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.2s ease !important;
-    box-shadow: none !important;
-}
-
-#stop_generating:hover {
+#send_but:hover, #stop_generating:hover {
     opacity: 0.9 !important;
     transform: scale(1.03) !important;
-}
-
-#stop_generating i,
-#stop_generating svg {
-    font-size: 1.1rem !important;
-    color: #ffffff !important;
 }
 
 /* =========================================================
@@ -166,9 +143,7 @@ body {
 /* =========================================================
    6. DROPDOWN & INPUT CONTROLS
    ========================================================= */
-select,
-.setting_select,
-#chat_style {
+select, .setting_select, #chat_style {
     background-color: rgba(22, 27, 34, 0.8) !important;
     color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
     border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
@@ -176,20 +151,6 @@ select,
     padding: 6px 12px !important;
     outline: none !important;
     transition: all 0.2s ease !important;
-}
-
-select:hover,
-.setting_select:hover,
-#chat_style:hover {
-    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.3)) !important;
-    background-color: rgba(30, 41, 59, 0.9) !important;
-}
-
-select:focus,
-.setting_select:focus,
-#chat_style:focus {
-    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
-    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
 }
 
 /* =========================================================
@@ -209,107 +170,65 @@ select:focus,
     border-radius: 8px !important;
     padding: 3px 10px !important;
     font-size: 0.82rem !important;
-    font-family: inherit !important;
     font-weight: 500 !important;
     cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    backdrop-filter: blur(8px) !important;
-}
-
-.quick_insert_btn:hover {
-    background: var(--SmartThemeQuoteColor, #38bdf8) !important;
-    color: #ffffff !important;
-    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3) !important;
-}
-
-.quick_insert_btn:active {
-    transform: translateY(0) !important;
 }
 
 /* =========================================================
-   8. USER MESSAGE: DEFAULT LAYOUT (กลับเป็นโครงสร้างดั้งเดิม)
+   8. USER MESSAGE LAYOUT FIX (แก้ไขการบีบตัว + จัดให้เหมือนเดิม)
    ========================================================= */
-
-/* 1. คอนเทนเนอร์หลักของ User Message */
 .mes[is_user="true"] {
     background: var(--SmartThemeUserMesBGColor, rgba(30, 27, 75, 0.5)) !important;
     border: 1px solid var(--SmartThemeEmColor, rgba(255, 255, 255, 0.1)) !important;
     border-left: 4px solid var(--SmartThemeEmColor, var(--SmartThemeQuoteColor, #a855f7)) !important;
     border-right: none !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 14px !important;
-    padding: 16px !important;
+    display: block !important; /* ใช้ block เพื่อให้ข้อความไหลเต็มความกว้าง */
     position: relative !important;
 }
 
-/* 2. บล็อก Avatar (อยู่ซ้ายสุด) */
 .mes[is_user="true"] .avatar {
-    position: relative !important;
-    flex-shrink: 0 !important;
-    margin: 0 !important;
+    float: left !important; /* จัดรูปให้อยู่ซ้ายมือ */
+    margin-right: 12px !important;
+    margin-bottom: 6px !important;
 }
 
-/* 3. บล็อกขวาที่รวม ชื่อ + เวลา + ข้อความ */
 .mes[is_user="true"] .mes_block {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-    width: 100% !important;
-    margin: 0 !important;
+    display: block !important;
 }
 
-/* 4. จัดส่วน ชื่อ + เวลา ให้อยู่บรรทัดเดียวกันด้านบน */
-.mes[is_user="true"] .mes_avatar_and_name_wrapper,
-.mes[is_user="true"] .ch_name {
+.mes[is_user="true"] .ch_name,
+.mes[is_user="true"] .mes_avatar_and_name_wrapper {
     display: flex !important;
     flex-direction: row !important;
     align-items: baseline !important;
-    justify-content: flex-start !important;
-    gap: 10px !important;
+    gap: 8px !important;
     margin-bottom: 6px !important;
-    padding: 0 !important;
 }
 
-/* ชื่อผู้ใช้ (User) */
 .mes[is_user="true"] .name_text {
     font-weight: 700 !important;
     font-size: 1.1rem !important;
     color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
-    text-shadow: 0 0 10px var(--SmartThemeQuoteColor, rgba(226, 217, 243, 0.5)) !important;
 }
 
-/* วันที่และเวลา */
 .mes[is_user="true"] .timestamp {
     font-size: 0.78rem !important;
     color: var(--SmartThemeBodyTextColor, #a09cb0) !important;
     opacity: 0.65 !important;
-    font-weight: normal !important;
 }
 
-/* 5. ข้อความแชทให้อยู่บรรทัดล่าง (ชิดซ้ายเต็มพื้นที่) */
 .mes[is_user="true"] .mes_text {
+    display: block !important;
     width: 100% !important;
     text-align: left !important;
     color: var(--SmartThemeBodyTextColor, #ffffff) !important;
     font-size: 1rem !important;
     line-height: 1.6 !important;
     box-sizing: border-box !important;
-    margin: 0 !important;
+    clear: none !important;
 }
 
-/* ปุ่มแก้ไข/ลบ อยู่มุมขวาสุด */
-.mes[is_user="true"] .mes_buttons {
-    position: absolute !important;
-    right: 12px !important;
-    top: 12px !important;
-}
-/* =========================================================
-   ONLINE STATUS DOT FOR AVATAR
-   ========================================================= */
+/* ONLINE STATUS DOT */
 .mes[is_user="false"] .avatar {
     position: relative !important;
 }
@@ -324,6 +243,4 @@ select:focus,
     background-color: #22c55e;
     border: 2px solid #0d1117;
     border-radius: 50%;
-    box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
-    z-index: 5;
 }
