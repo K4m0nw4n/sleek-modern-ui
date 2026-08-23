@@ -11,6 +11,12 @@
 - **จุดไฟสถานะ Online**: เพิ่มจุดไฟเรืองแสงสีเขียวบริเวณรูปโปรไฟล์ของตัวละคร AI
 - **Quick Insert Toolbar (แถบแทรกสัญลักษณ์ด่วน)**: ปุ่มลอยเหนือช่องพิมพ์ (`"..."`, `*...*`, `(...)`) กดแทรกสัญลักษณ์ครอบข้อความ หรือย้ายเคอร์เซอร์ไปตรงกลางให้อัตโนมัติ
 
+## 🌟 รายการอัปเดต (Features)
+- Mobile Full-Width Layout Fix: แก้ไขปัญหาข้อความโดนบีบเป็นคอลัมน์แคบบนหน้าจอมือถือ โดยปลดล็อก max-width และปรับ padding ของพื้นที่แชทให้ยืดเต็มขอบจอ  
+- Default Layout Preservation: คงโครงสร้าง UI ดั้งเดิมของ SillyTavern ไว้ (Avatar อยู่ซ้ายสุด -> ชื่อผู้ใช้และเวลาอยู่ด้านบน -> ข้อความเรียงต่อด้านล่างชิดซ้าย)
+- Modern Dark Aesthetics: โทนสีมืด #0d1117 สไตล์ GitHub / Slate พร้อมเอฟเฟกต์กระจกฝ้า (Glassmorphism / Backdrop Filter Blur)
+- Interactive UI Controls: ปรับแต่ง Top Bar, Quick Insert Toolbar, Input Box และ Dropdown ต่างๆ ให้เข้าชุดกัน[cite: 1]
+- Online Status Indicator: แสดงจุดสถานะออนไลน์สีเขียวเรืองแสงที่มุมรูป Avatar[cite: 1]
 ---
 
 ## 📦 วิธีการติดตั้ง
