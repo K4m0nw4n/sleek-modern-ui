@@ -121,13 +121,14 @@ body {
     border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
 }
 /* =========================================================
-   4. INPUT & SEND AREA (ปรับกล่องพิมพ์ด้านล่าง)
+   4. INPUT & SEND AREA (ปรับแต่งปุ่มส่งและปุ่มหยุดให้เหมือนกัน)
    ========================================================= */
 #send_form {
     background: rgba(13, 17, 23, 0.85) !important;
     backdrop-filter: blur(20px) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     padding: 14px 20px !important;
+    position: relative !important;
 }
 
 #send_textarea {
@@ -144,10 +145,13 @@ body {
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
 }
 
+/* ปุ่มส่ง (Send) */
 #send_but {
-    background: linear-gradient(135deg, #38bdf8, #6366f1) !important;
+    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
     border: none !important;
     border-radius: 12px !important;
+    width: 42px !important;
+    height: 42px !important;
     font-weight: 600 !important;
     transition: all 0.2s ease !important;
 }
@@ -157,6 +161,33 @@ body {
     transform: scale(1.03);
 }
 
+/* ปุ่มหยุด (Stop Generating) - ปรับรูปทรงและสีให้สอดคล้องกับปุ่มส่ง */
+#stop_generating {
+    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
+    border: none !important;
+    border-radius: 12px !important; /* ปรับขอบมนให้เท่ากัน (12px) ไม่ใช่รูปทรงกลม */
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+#stop_generating:hover {
+    opacity: 0.9 !important;
+    transform: scale(1.03) !important;
+}
+
+/* ปรับขนาดไอคอนด้านในปุ่มหยุด */
+#stop_generating i,
+#stop_generating svg {
+    font-size: 1.1rem !important;
+    color: #ffffff !important;
+}
 /* =========================================================
    5. DRAWER PANELS (แถบเมนูด้านซ้าย-ขวา เวลาเปิดออก)
    ========================================================= */
@@ -165,6 +196,70 @@ body {
     backdrop-filter: blur(24px) !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
 }
+/* =========================================================
+   6. DROPDOWN & INPUT CONTROLS (ปรับแต่งช่อง Select ให้มนเข้าธีม)
+   ========================================================= */
+select,
+.setting_select,
+#chat_style {
+    background-color: rgba(22, 27, 34, 0.8) !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
+    border-radius: 10px !important;
+    padding: 6px 12px !important;
+    outline: none !important;
+    transition: all 0.2s ease !important;
+}
+
+select:hover,
+.setting_select:hover,
+#chat_style:hover {
+    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.3)) !important;
+    background-color: rgba(30, 41, 59, 0.9) !important;
+}
+
+select:focus,
+.setting_select:focus,
+#chat_style:focus {
+    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
+}
+/* =========================================================
+   7. QUICK INSERT TOOLBAR (ปุ่มทางลัดลอยเหนือช่องพิมพ์)
+   ========================================================= */
+#quick_insert_toolbar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+}
+
+.quick_insert_btn {
+    background: rgba(22, 27, 34, 0.8) !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
+    border-radius: 8px !important;
+    padding: 3px 10px !important;
+    font-size: 0.82rem !important;
+    font-family: inherit !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.quick_insert_btn:hover {
+    background: var(--SmartThemeQuoteColor, #38bdf8) !important;
+    color: #ffffff !important;
+    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3) !important;
+}
+
+.quick_insert_btn:active {
+    transform: translateY(0) !important;
+}
+
 /* =========================================================
    USER MESSAGE: ALIGN AVATAR & NAME TO THE RIGHT
    ========================================================= */
@@ -196,4 +291,24 @@ body {
 .mes[is_user="true"] .mes_text {
     text-align: right !important;
     width: 100% !important;
+}
+/* =========================================================
+   ONLINE STATUS DOT FOR AVATAR
+   ========================================================= */
+.mes[is_user="false"] .avatar {
+    position: relative !important;
+}
+
+.mes[is_user="false"] .avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e;
+    border: 2px solid #0d1117;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+    z-index: 5;
 }
