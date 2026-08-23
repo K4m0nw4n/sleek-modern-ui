@@ -267,42 +267,41 @@ select:focus,
 .quick_insert_btn:active {
     transform: translateY(0) !important;
 }
-
 /* =========================================================
-   USER MESSAGE: ALIGN AVATAR & NAME TO THE RIGHT (FIXED)
+   8. USER MESSAGE: ALIGN AVATAR SIDE-BY-SIDE WITH TEXT
    ========================================================= */
-
-/* 1. จัดโครงสร้างหลักฝั่ง User ให้ชิดขวา */
 .mes[is_user="true"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    text-align: right !important;
+    display: block !important;
 }
 
-/* 2. จัดระเบียบบล็อกชื่อ เวลา และรูปโปรไฟล์ให้อยู่ในแถวเดียวกันอย่างสมดุล */
-.mes[is_user="true"] .mes_block {
-    display: flex !important;
-    flex-direction: row-reverse !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 12px !important;
-    width: 100% !important;
+/* ล็อกรูปโปรไฟล์ไว้ฝั่งขวา ให้ข้อความและชื่อไหลขนานข้างๆ */
+.mes[is_user="true"] .avatar {
+    float: right !important;
+    margin-left: 12px !important;
+    margin-bottom: 6px !important;
+    margin-top: 2px !important;
 }
 
-/* 3. จัดกลุ่มชื่อและเวลาให้ชิดขวาเรียงลงมา */
+/* ปรับชื่อและเวลาให้อยู่ฝั่งขวาเสมอระดับรูป */
 .mes[is_user="true"] .ch_name {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    gap: 2px !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-align: right !important;
 }
 
-/* 4. จัดข้อความแชตฝั่ง User ให้ชิดขวาเข้าที่ */
+/* จัดข้อความให้อยู่ฝั่งขวา */
 .mes[is_user="true"] .mes_text {
     text-align: right !important;
-    width: 100% !important;
-    margin-top: 4px !important;
+    clear: none !important;
+}
+
+/* ล้าง float เมื่อจบกล่องแชตเพื่อไม่ให้กระทบกล่องถัดไป */
+.mes[is_user="true"]::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 /* =========================================================
    ONLINE STATUS DOT FOR AVATAR
