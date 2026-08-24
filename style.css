@@ -379,4 +379,29 @@ select:focus,
     max-width: 100% !important;
     text-align: left !important;
 }
+/* =========================================================
+   FIX: EXPAND TEXT AREA TO FILL LEFT GAP
+   ========================================================= */
 
+/* เคลียร์พื้นที่ฝั่งซ้ายให้ข้อความยืดเต็มกล่อง */
+.mes .mes_block {
+    display: block !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+
+/* บังคับตัวข้อความให้ขยายเต็มความกว้าง 100% */
+.mes_text {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    clear: both !important;
+}
+
+/* หากไม่มีรูป Avatar ให้ยกเลิกระยะการดันข้อความ */
+.mes:not(:has(.avatar img:visible)) .mes_text,
+.mes .avatar:empty {
+    margin-left: 0 !important;
+    display: none !important;
+}
