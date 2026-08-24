@@ -1,381 +1,382 @@
 /* =========================================================
-   1. GLOBAL STYLES & BACKGROUND
-   ========================================================= */
+   1. GLOBAL STYLES & BACKGROUND
+   ========================================================= */
 body {
-    background: #0d1117 !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    color: #e6edf3 !important;
+    background: #0d1117 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    color: #e6edf3 !important;
 }
 
 /* เพิ่มความเงา/เบลอให้ภาพพื้นหลัง */
 #bg1 {
-    filter: blur(12px) brightness(0.35) !important;
-    transform: scale(1.05); /* ป้องกันขอบขาวจากการทำ blur */
+    filter: blur(12px) brightness(0.35) !important;
+    transform: scale(1.05); /* ป้องกันขอบขาวจากการทำ blur */
 }
 
 /* =========================================================
-   2. TOP BAR & NAVIGATION (FIXED SCROLL)
-   ========================================================= */
+   2. TOP BAR & NAVIGATION (FIXED SCROLL)
+   ========================================================= */
 #top-bar {
-    background: var(--SmartThemeBlurTintColor, rgba(15, 20, 29, 0.9)) !important;
-    backdrop-filter: blur(16px) !important;
-    border-bottom: none !important;
-    height: 40px !important;
-    line-height: 40px !important;
-    border-radius: 0 0 12px 12px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
-    padding: 0 10px !important;
+    background: var(--SmartThemeBlurTintColor, rgba(15, 20, 29, 0.9)) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: none !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+    padding: 0 10px !important;
 }
 
 #top-bar .drawer-icon {
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 8px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.2s ease;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease;
 }
 
 #top-bar .drawer-icon:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.12) !important;
+    transform: translateY(-1px);
 }
 
 /* คืนค่าการ Scroll ให้หน้าต่างพาเนลข้างๆ */
 .drawer-content,
 #right-nav-panel,
 #left-nav-panel {
-    border: none !important;
-    border-radius: 12px !important;
-    overflow-y: auto !important; /* แก้ไขเพื่อให้เลื่อนขึ้นลงได้ */
+    border: none !important;
+    border-radius: 12px !important;
+    overflow-y: auto !important; /* แก้ไขเพื่อให้เลื่อนขึ้นลงได้ */
 }
 /* =========================================================
-   3. CHAT AREA & BUBBLES
-   ========================================================= */
+   3. CHAT AREA & BUBBLES
+   ========================================================= */
 #chat {
-    padding: 20px 12% !important;
+    padding: 20px 12% !important;
 }
 
 .mes {
-    background: var(--SmartThemeBotMesBGColor, rgba(15, 23, 42, 0.8)) !important;
-    backdrop-filter: blur(12px) !important;
-    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-    margin-bottom: 20px !important;
-    padding: 18px 22px !important;
-    transition: border-color 0.2s ease;
+    background: var(--SmartThemeBotMesBGColor, rgba(15, 23, 42, 0.8)) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 20px !important;
+    padding: 18px 22px !important;
+    transition: border-color 0.2s ease;
 }
 
 .mes:hover {
-    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.25)) !important;
+    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.25)) !important;
 }
 
 /* ฝั่ง AI (Character) */
 .mes[is_user="false"] {
-    border-left: 4px solid var(--SmartThemeQuoteColor, var(--SmartThemeBodyTextColor, #38bdf8)) !important;
+    border-left: 4px solid var(--SmartThemeQuoteColor, var(--SmartThemeBodyTextColor, #38bdf8)) !important;
 }
 
 .mes[is_user="false"] .mes_text {
-    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
 }
 
 .avatar img {
-    border-radius: 12px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
 }
 
 /* =========================================================
-   4. INPUT & SEND AREA
-   ========================================================= */
+   4. INPUT & SEND AREA
+   ========================================================= */
 #send_form {
-    background: rgba(13, 17, 23, 0.85) !important;
-    backdrop-filter: blur(20px) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding: 14px 20px !important;
-    position: relative !important;
+    background: rgba(13, 17, 23, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 14px 20px !important;
+    position: relative !important;
 }
 
 #send_textarea {
-    background: rgba(22, 27, 34, 0.9) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 12px !important;
-    color: #f0f6fc !important;
-    padding: 12px 16px !important;
-    font-size: 0.95rem !important;
+    background: rgba(22, 27, 34, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #f0f6fc !important;
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
 }
 
 #send_textarea:focus {
-    border-color: #38bdf8 !important;
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
 }
 
 #send_but {
-    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
-    border: none !important;
-    border-radius: 12px !important;
-    width: 42px !important;
-    height: 42px !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease !important;
+    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
 }
 
 #send_but:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
+    opacity: 0.9;
+    transform: scale(1.03);
 }
 
 #stop_generating {
-    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
-    border: none !important;
-    border-radius: 12px !important;
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
-    color: #ffffff !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.2s ease !important;
-    box-shadow: none !important;
+    background: linear-gradient(135deg, var(--SmartThemeQuoteColor, #38bdf8), var(--SmartThemeEmColor, #6366f1)) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
 }
 
 #stop_generating:hover {
-    opacity: 0.9 !important;
-    transform: scale(1.03) !important;
+    opacity: 0.9 !important;
+    transform: scale(1.03) !important;
 }
 
 #stop_generating i,
 #stop_generating svg {
-    font-size: 1.1rem !important;
-    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    color: #ffffff !important;
 }
 
 /* =========================================================
-   5. DRAWER PANELS (FIXED SCROLL)
-   ========================================================= */
+   5. DRAWER PANELS (FIXED SCROLL)
+   ========================================================= */
 .drawer-content {
-    background: rgba(13, 17, 23, 0.95) !important;
-    backdrop-filter: blur(24px) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    overflow-y: auto !important; /* คืนค่า Scrollbar ให้หน้าต่างตั้งค่า */
+    background: rgba(13, 17, 23, 0.95) !important;
+    backdrop-filter: blur(24px) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    overflow-y: auto !important; /* คืนค่า Scrollbar ให้หน้าต่างตั้งค่า */
 }
 /* =========================================================
-   6. DROPDOWN & INPUT CONTROLS
-   ========================================================= */
+   6. DROPDOWN & INPUT CONTROLS
+   ========================================================= */
 select,
 .setting_select,
 #chat_style {
-    background-color: rgba(22, 27, 34, 0.8) !important;
-    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
-    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
-    border-radius: 10px !important;
-    padding: 6px 12px !important;
-    outline: none !important;
-    transition: all 0.2s ease !important;
+    background-color: rgba(22, 27, 34, 0.8) !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
+    border-radius: 10px !important;
+    padding: 6px 12px !important;
+    outline: none !important;
+    transition: all 0.2s ease !important;
 }
 
 select:hover,
 .setting_select:hover,
 #chat_style:hover {
-    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.3)) !important;
-    background-color: rgba(30, 41, 59, 0.9) !important;
+    border-color: var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.3)) !important;
+    background-color: rgba(30, 41, 59, 0.9) !important;
 }
 
 select:focus,
 .setting_select:focus,
 #chat_style:focus {
-    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
-    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
+    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
 }
 
 /* =========================================================
-   7. QUICK INSERT TOOLBAR
-   ========================================================= */
+   7. QUICK INSERT TOOLBAR
+   ========================================================= */
 #quick_insert_toolbar {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 8px;
-    padding: 0 4px;
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 0 4px;
 }
 
 .quick_insert_btn {
-    background: rgba(22, 27, 34, 0.8) !important;
-    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
-    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
-    border-radius: 8px !important;
-    padding: 3px 10px !important;
-    font-size: 0.82rem !important;
-    font-family: inherit !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    backdrop-filter: blur(8px) !important;
+    background: rgba(22, 27, 34, 0.8) !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.15)) !important;
+    border-radius: 8px !important;
+    padding: 3px 10px !important;
+    font-size: 0.82rem !important;
+    font-family: inherit !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    backdrop-filter: blur(8px) !important;
 }
 
 .quick_insert_btn:hover {
-    background: var(--SmartThemeQuoteColor, #38bdf8) !important;
-    color: #ffffff !important;
-    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3) !important;
+    background: var(--SmartThemeQuoteColor, #38bdf8) !important;
+    color: #ffffff !important;
+    border-color: var(--SmartThemeQuoteColor, #38bdf8) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3) !important;
 }
 
 .quick_insert_btn:active {
-    transform: translateY(0) !important;
+    transform: translateY(0) !important;
 }
 
 /* =========================================================
-   8. UNIFIED AVATAR & HEADER LAYOUT (LIKE EXAMPLE IMAGE)
-   ========================================================= */
+   8. UNIFIED AVATAR & HEADER LAYOUT (LIKE EXAMPLE IMAGE)
+   ========================================================= */
 
 /* โครงสร้างกล่องแชทหลัก */
 .mes {
-    background: var(--SmartThemeBotMesBGColor, rgba(15, 23, 42, 0.8)) !important;
-    backdrop-filter: blur(12px) !important;
-    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-    margin-bottom: 15px !important;
-    padding: 12px 14px !important;
-    transition: border-color 0.2s ease;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+    background: var(--SmartThemeBotMesBGColor, rgba(15, 23, 42, 0.8)) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 15px !important;
+    padding: 12px 14px !important;
+    transition: border-color 0.2s ease;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /* ลอยรูปภาพไว้ทางซ้าย เพื่อให้ข้อความวิ่งอยู่ขวา */
 .mes .avatar {
-    float: left !important;
-    margin-top: 0 !important;
-    margin-right: 14px !important;
-    margin-bottom: 6px !important;
-    margin-left: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    position: relative !important;
+    float: left !important;
+    margin-top: 0 !important;
+    margin-right: 14px !important;
+    margin-bottom: 6px !important;
+    margin-left: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
 }
 
 /* ซ่อนเลขลำดับข้อความใต้รูปตามตัวอย่างภาพ */
 .mes .message_id,
 .mes .mes_id,
 .mes .avatar .mes_id {
-    display: none !important;
+    display: none !important;
 }
 
 /* จัดส่วนหัว (ชื่อ + เวลา) ให้อยู่ด้านบนถัดจากรูป */
 .mes .mes_avatar_and_name_wrapper,
 .mes .ch_name {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: baseline !important;
-    gap: 8px !important;
-    margin-bottom: 6px !important;
-    clear: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 8px !important;
+    margin-bottom: 6px !important;
+    clear: none !important;
 }
 
 .mes .name_text {
-    font-weight: 700 !important;
-    font-size: 1.1rem !important;
-    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    color: var(--SmartThemeBodyTextColor, #e2e8f0) !important;
 }
 
 .mes .timestamp {
-    font-size: 0.78rem !important;
-    color: var(--SmartThemeBodyTextColor, #a09cb0) !important;
-    opacity: 0.65 !important;
+    font-size: 0.78rem !important;
+    color: var(--SmartThemeBodyTextColor, #a09cb0) !important;
+    opacity: 0.65 !important;
 }
 
 /* ตัวข้อความแชท */
 .mes_text {
-    display: block !important;
-    width: auto !important;
-    max-width: 100% !important;
-    text-align: left !important;
-    color: var(--SmartThemeBodyTextColor, #ffffff) !important;
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-    box-sizing: border-box !important;
-    word-break: break-word !important;
-    clear: none !important;
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    color: var(--SmartThemeBodyTextColor, #ffffff) !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    clear: none !important;
 }
 
 /* ปรับรูปแบบเฉพาะฝั่ง User ให้เหมือนกันเป๊ะ */
 .mes[is_user="true"] {
-    background: var(--SmartThemeUserMesBGColor, rgba(30, 27, 75, 0.5)) !important;
-    border: 1px solid var(--SmartThemeEmColor, rgba(255, 255, 255, 0.1)) !important;
-    border-left: 4px solid var(--SmartThemeEmColor, var(--SmartThemeQuoteColor, #a855f7)) !important;
+    background: var(--SmartThemeUserMesBGColor, rgba(30, 27, 75, 0.5)) !important;
+    border: 1px solid var(--SmartThemeEmColor, rgba(255, 255, 255, 0.1)) !important;
+    border-left: 4px solid var(--SmartThemeEmColor, var(--SmartThemeQuoteColor, #a855f7)) !important;
 }
 
 /* ONLINE STATUS DOT FOR AI AVATAR */
 .mes[is_user="false"] .avatar::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    width: 10px;
-    height: 10px;
-    background-color: #22c55e;
-    border: 2px solid #0d1117;
-    border-radius: 50%;
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e;
+    border: 2px solid #0d1117;
+    border-radius: 50%;
 }
 /* =========================================================
-   ONLINE STATUS DOT FOR AVATAR
-   ========================================================= */
+   ONLINE STATUS DOT FOR AVATAR
+   ========================================================= */
 .mes[is_user="false"] .avatar {
-    position: relative !important;
+    position: relative !important;
 }
 
 .mes[is_user="false"] .avatar::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    width: 10px;
-    height: 10px;
-    background-color: #22c55e;
-    border: 2px solid #0d1117;
-    border-radius: 50%;
-    box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
-    z-index: 5;
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e;
+    border: 2px solid #0d1117;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+    z-index: 5;
 }
 /* =========================================================
-   FIX: ปลดล็อกความกว้างพื้นที่แชท + ขยายตัวหนังสือเต็มจอ
-   ========================================================= */
+   FIX: ปลดล็อกความกว้างพื้นที่แชท + ขยายตัวหนังสือเต็มจอ
+   ========================================================= */
 
 /* 1. ขยายพื้นที่กล่องข้อความหลักให้เต็มหน้าจอ */
 #chat {
-    padding: 10px 0 !important; /* ยกเลิกการบีบขอบซ้ายขวา */
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+    padding: 10px 0 !important; /* ยกเลิกการบีบขอบซ้ายขวา */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /* 2. ปรับตัวการ์ดข้อความ (.mes) ทั้งฝั่ง AI และ User */
 .mes {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 12px 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 12px 14px !important;
 }
 
 /* 3. บังคับเนื้อหาข้อความ (.mes_text) ให้ขยายเต็มพื้นที่และจัดชิดซ้าย */
 .mes_text {
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: left !important; /* จัดข้อความชิดซ้าย ไม่บีบตรงกลาง */
-    box-sizing: border-box !important;
-    word-break: break-word !important; /* ป้องกันข้อความยาวทะลุจอ */
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important; /* จัดข้อความชิดซ้าย ไม่บีบตรงกลาง */
+    box-sizing: border-box !important;
+    word-break: break-word !important; /* ป้องกันข้อความยาวทะลุจอ */
 }
 
 /* 4. เคลียร์ค่าฝั่ง User ให้ยืดเต็มขอบเช่นกัน */
 .mes[is_user="true"] .mes_text {
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
 }
+
