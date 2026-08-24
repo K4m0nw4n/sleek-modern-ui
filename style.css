@@ -229,39 +229,53 @@ select:focus,
 }
 
 /* =========================================================
-   8. USER & CHARACTER MESSAGE LAYOUT (MERGED & WIDE)
+   8. UNIFIED AVATAR & HEADER LAYOUT (LIKE EXAMPLE IMAGE)
    ========================================================= */
-.mes[is_user="true"] {
-    background: var(--SmartThemeUserMesBGColor, rgba(30, 27, 75, 0.5)) !important;
-    border: 1px solid var(--SmartThemeEmColor, rgba(255, 255, 255, 0.1)) !important;
-    border-left: 4px solid var(--SmartThemeEmColor, var(--SmartThemeQuoteColor, #a855f7)) !important;
-    border-right: none !important;
-    display: block !important;
-    position: relative !important;
+
+/* โครงสร้างกล่องแชทหลัก */
+.mes {
+    background: var(--SmartThemeBotMesBGColor, rgba(15, 23, 42, 0.8)) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--SmartThemeQuoteColor, rgba(255, 255, 255, 0.1)) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 15px !important;
+    padding: 12px 14px !important;
+    transition: border-color 0.2s ease;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
-/* จัด Avatar ให้อยู่ทางซ้าย พร้อมระยะห่างที่เท่ากันทั้ง User และ AI */
+/* ลอยรูปภาพไว้ทางซ้าย เพื่อให้ข้อความวิ่งอยู่ขวา */
 .mes .avatar {
     float: left !important;
     margin-top: 0 !important;
-    margin-right: 12px !important;
-    margin-bottom: 8px !important;
+    margin-right: 14px !important;
+    margin-bottom: 6px !important;
     margin-left: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
 }
 
-/* ป้องกันข้อความโดนบีบแคบ โดยใช้ overflow: hidden เพื่อขยายเต็มพื้นที่ฝั่งขวา */
-.mes .mes_block {
-    display: block !important;
-    overflow: hidden !important;
+/* ซ่อนเลขลำดับข้อความใต้รูปตามตัวอย่างภาพ */
+.mes .message_id,
+.mes .mes_id,
+.mes .avatar .mes_id {
+    display: none !important;
 }
 
-.mes .ch_name,
-.mes .mes_avatar_and_name_wrapper {
+/* จัดส่วนหัว (ชื่อ + เวลา) ให้อยู่ด้านบนถัดจากรูป */
+.mes .mes_avatar_and_name_wrapper,
+.mes .ch_name {
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
+    align-items: baseline !important;
     gap: 8px !important;
     margin-bottom: 6px !important;
+    clear: none !important;
 }
 
 .mes .name_text {
@@ -276,10 +290,10 @@ select:focus,
     opacity: 0.65 !important;
 }
 
-/* ขยายความกว้างกล่องข้อความให้กว้างที่สุด */
+/* ตัวข้อความแชท */
 .mes_text {
     display: block !important;
-    width: 100% !important;
+    width: auto !important;
     max-width: 100% !important;
     text-align: left !important;
     color: var(--SmartThemeBodyTextColor, #ffffff) !important;
@@ -290,11 +304,14 @@ select:focus,
     clear: none !important;
 }
 
-/* ONLINE STATUS DOT FOR AVATAR */
-.mes[is_user="false"] .avatar {
-    position: relative !important;
+/* ปรับรูปแบบเฉพาะฝั่ง User ให้เหมือนกันเป๊ะ */
+.mes[is_user="true"] {
+    background: var(--SmartThemeUserMesBGColor, rgba(30, 27, 75, 0.5)) !important;
+    border: 1px solid var(--SmartThemeEmColor, rgba(255, 255, 255, 0.1)) !important;
+    border-left: 4px solid var(--SmartThemeEmColor, var(--SmartThemeQuoteColor, #a855f7)) !important;
 }
 
+/* ONLINE STATUS DOT FOR AI AVATAR */
 .mes[is_user="false"] .avatar::after {
     content: '';
     position: absolute;
