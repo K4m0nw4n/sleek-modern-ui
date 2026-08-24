@@ -405,39 +405,3 @@ select:focus,
     margin-left: 0 !important;
     display: none !important;
 }
-/* =========================================================
-   FIX: TOPINFOBAR EXTENSION & TOP BAR OVERFLOW
-   ========================================================= */
-
-/* ปลดล็อกความสูงของ Top Bar ให้ขยายตาม Extension แบบอัตโนมัติ */
-#top-bar {
-    height: auto !important;
-    min-height: 40px !important;
-    line-height: normal !important;
-    padding: 6px 12px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important;
-    overflow: visible !important;
-}
-
-/* จัดระเบียบการจัดวางไอคอนและข้อความภายใน TopInfoBar */
-#top-bar > div,
-.top_info_bar,
-#top_info_bar {
-    display: flex !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-    width: 100% !important;
-}
-
-/* ปรับขนาดและระยะของไอคอนไม่ให้เบี้ยวหรือล้นขอบ */
-#top-bar .drawer-icon,
-#top-bar button,
-#top-bar i {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    vertical-align: middle !important;
-}
